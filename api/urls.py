@@ -2,10 +2,9 @@
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.views import LocationView, ParkingSpotList, ParkingSpotDetail, ReservationList, ReservationDetail, CategoryList, CategoryDetail
+from api.views import ParkingSpotList, ParkingSpotDetail, ReservationList, ReservationDetail, CategoryList, CategoryDetail
 
-urlpatterns = [
-    path('', LocationView.as_view(), name='Location'),
+urlpatterns = [    
 
     path(r'parkingspot/', ParkingSpotList.as_view()),
     path(r'parkingspot/<int:pk>/', ParkingSpotDetail.as_view()),    
