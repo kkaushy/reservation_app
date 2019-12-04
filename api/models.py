@@ -1,4 +1,6 @@
-from django.db import models
+# from django.db import models
+from django.contrib.gis.db import models
+
 
 class Category(models.Model):
     name = models.CharField(max_length=1024)
@@ -6,17 +8,21 @@ class Category(models.Model):
     cost = models.FloatField()
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.name
 
 class ParkingSpot(models.Model):
     class Meta:
         ordering = ['updatedAt',]      
-    longitude = models.FloatField()
-    latitude = models.FloatField()    
+    # longitude = models.FloatField()
+    # latitude = models.FloatField()   
+    location = models.PointField(null=True, blank=True) 
     description = models.CharField(max_length=255,blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)    
     is_active = models.BooleanField(default=True)
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
+    
 
 
 

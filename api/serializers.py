@@ -16,7 +16,7 @@ class ParkingSpotSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ParkingSpot
-        fields = ('id', 'longitude', 'latitude', 'description', 'category', 'is_active', 'createdAt', 'updatedAt')
+        fields = ('id', 'location', 'description', 'category', 'is_active', 'createdAt', 'updatedAt')
         read_only_fields = ('id',)
 
 
